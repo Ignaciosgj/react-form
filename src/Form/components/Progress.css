@@ -1,0 +1,11 @@
+.container {
+  height: 5px;
+  width: 100%;
+  background-color: #E4E6F3;
+}
+
+.advance {
+  height: 5px;
+  background-color: #141525;
+  transition: width 0.5s ease-in-out;
+}

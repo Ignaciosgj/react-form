@@ -1,0 +1,40 @@
+.header {
+  padding: 3rem;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.body {
+  padding: 3rem;
+}
+
+.footer {
+  padding: 3rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+
+.button-container {
+  padding: 1rem 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form {
+  max-height: 100vh;
+}
+
+
+@keyframes progress { 
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
