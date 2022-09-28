@@ -10,6 +10,7 @@ import { ShowData } from "./components/ShowData";
 import "./Form.css";
 
 export const Form = () => {
+	const [disable, setDisable] = useState(true);
 	const [page, setPage] = useState(0);
 	const [formData, setFormData] = useState({
 		nombre: "",
@@ -18,23 +19,23 @@ export const Form = () => {
 		contraseña: "",
 	});
 
-	// const testing = () => {
-	// 	if (page === 0 && formData.nombre === "") {
-	// 		setDisable(true);
-	// 	} else if (page === 1 && formData.apellido === "") {
-	// 		setDisable(true);
-	// 	} else if (page === 2 && formData.email === "") {
-	// 		setDisable(true);
-	// 	} else if (page === 3 && formData.contraseña === "") {
-	// 		setDisable(true);
-	// 	} else {
-	// 		setDisable(false);
-	// 	}
-	// };
+	const testing = () => {
+		if (page === 0 && formData.nombre === "") {
+			setDisable(true);
+		} else if (page === 1 && formData.apellido === "") {
+			setDisable(true);
+		} else if (page === 2 && formData.email === "") {
+			setDisable(true);
+		} else if (page === 3 && formData.contraseña === "") {
+			setDisable(true);
+		} else {
+			setDisable(false);
+		}
+	};
 
-	// useEffect(() => {
-	// 	testing();
-	// }, [formData]);
+	useEffect(() => {
+		testing();
+	}, [formData, page, disable]);
 
 	const pageDisplay = (number) => {
 		const pages = [
@@ -64,7 +65,7 @@ export const Form = () => {
 				<div className="body">{pageDisplay(page)}</div>
 				<div className="footer">
 					<Progress
-						percentage={(100 / (FormTitles.length - 1)) * page}
+						percentage={(100 / (FormTitles.length)) * page}
 					/>
 					<div className="button-container">
 						<CustomButton
@@ -76,7 +77,8 @@ export const Form = () => {
 							Anterior
 						</CustomButton>
 						<CustomButton
-							disabled={page == FormTitles.length - 1}
+							// disabled={page == FormTitles.length - 1}
+							disabled={disable || page == FormTitles.length - 1}
 							funcion={() =>
 								setPage((currentPage) => currentPage + 1)
 							}
