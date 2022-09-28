@@ -65,7 +65,7 @@ export const Form = () => {
 				<div className="body">{pageDisplay(page)}</div>
 				<div className="footer">
 					<Progress
-						percentage={(100 / (FormTitles.length)) * page}
+						percentage={(100 / (FormTitles.length - 1)) * page}
 					/>
 					<div className="button-container">
 						<CustomButton
